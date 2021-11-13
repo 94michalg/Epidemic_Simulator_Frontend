@@ -1,0 +1,63 @@
+<div class="list row">
+    <!-- <div class="col-md-8"> -->
+      <!-- <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div> -->
+    <!-- </div> -->
+    <div class="col-md-6">
+      <h4>Simulations List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let simulation of simulations; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveSimulation(simulation, i)"
+        >
+          {{ simulation.name }}
+        </li>
+      </ul>
+  
+      <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button> -->
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentSimulation.id">
+        <h4>Simulation</h4>
+        <div>
+          <label><strong>Id:</strong></label> {{ currentSimulation.id }}
+        </div>
+        <div>
+          <label><strong>Name:</strong></label>
+          {{ currentSimulation.name }}
+        </div>
+        <!-- <div>
+          <label><strong>Status:</strong></label>
+          {{ currentTutorial.published ? "Published" : "Pending" }}
+        </div> -->
+  
+        <a class="badge badge-warning" routerLink="/simulation/{{ currentSimulation.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentSimulation">
+        <br />
+        <p>Please click on a Simulation...</p>
+      </div>
+    </div>
+  </div>
