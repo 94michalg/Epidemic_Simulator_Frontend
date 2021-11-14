@@ -6,7 +6,7 @@ import { ControllerService } from 'src/app/services/controller.service';
 @Component({
   selector: 'app-simulation-list',
   templateUrl: './simulation-list.component.html',
-  styleUrls: ['./simulation-list.component.css']
+  styleUrls: ['./simulation-list.component.scss']
 })
 export class SimulationListComponent implements OnInit {
 

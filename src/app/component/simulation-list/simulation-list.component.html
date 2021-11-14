@@ -1,26 +1,36 @@
 <div class="list row">
-    <!-- <div class="col-md-8"> -->
-      <!-- <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by title"
-          [(ngModel)]="title"
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="searchTitle()"
-          >
-            Search
-          </button>
-        </div>
-      </div> -->
-    <!-- </div> -->
-    <div class="col-md-6">
+  
+    <div class="container">
       <h4>Simulations List</h4>
-      <ul class="list-group">
+      
+      <table class='table table-bordered table-condensed table-striped table-hover'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Population</th>
+            <th>Infected</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable" *ngFor="let simulation of simulations" routerLink="/simulation/{{ currentSimulation.id }}" >
+            <td>{{simulation.name}}</td>
+            <td>{{simulation.population}}</td>
+            <td>{{simulation.infected}}</td>
+          </tr>
+        </tbody>
+      
+      </table>
+
+      <!-- <div class="table">
+        <a *ngFor="let simulation of simulations" 
+        class="tableRow" href="http://www.google.com">
+          <div class="tableCell">{{simulation.name}}</div>
+          <div class="tableCell">{{simulation.population}}</div>
+          <div class="tableCell">{{simulation.infected}}</div>
+        </a>
+      </div> -->
+
+      <!-- <ul class="list-group">
         <li
           class="list-group-item"
           *ngFor="let simulation of simulations; let i = index"
@@ -29,13 +39,10 @@
         >
           {{ simulation.name }}
         </li>
-      </ul>
-  
-      <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
-        Remove All
-      </button> -->
+      </ul> -->
+    
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <div *ngIf="currentSimulation.id">
         <h4>Simulation</h4>
         <div>
@@ -45,10 +52,6 @@
           <label><strong>Name:</strong></label>
           {{ currentSimulation.name }}
         </div>
-        <!-- <div>
-          <label><strong>Status:</strong></label>
-          {{ currentTutorial.published ? "Published" : "Pending" }}
-        </div> -->
   
         <a class="badge badge-warning" routerLink="/simulation/{{ currentSimulation.id }}">
           Edit
@@ -59,5 +62,5 @@
         <br />
         <p>Please click on a Simulation...</p>
       </div>
-    </div>
+    </div> -->
   </div>
