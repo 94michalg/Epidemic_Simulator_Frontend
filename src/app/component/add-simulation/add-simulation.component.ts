@@ -9,6 +9,7 @@ import { ControllerService } from 'src/app/services/controller.service';
 })
 export class AddSimulationComponent implements OnInit {
   simulation: Simulation = {
+    id: '',
     name: '',
     population: 0,
     infected: 0,
@@ -50,6 +51,7 @@ export class AddSimulationComponent implements OnInit {
   newSimulation(): void {
     this.submitted = false;
     this.simulation = {
+      id: '',
       name: '',
       population: 0,
       infected: 0,

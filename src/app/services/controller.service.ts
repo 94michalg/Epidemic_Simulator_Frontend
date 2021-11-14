@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Simulation } from '../models/simulation.model';
+import { SimulationWithStats } from '../models/simulation-with-stats.model';
 
 const baseUrl = 'http://localhost:8080/api/simulation';
 
@@ -22,5 +23,10 @@ export class ControllerService {
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
+  }
+
+  get(id: string): Observable<SimulationWithStats> {
+    let url = `${baseUrl}/${id}`;
+    return this.http.get<SimulationWithStats>(url);
   }
 }

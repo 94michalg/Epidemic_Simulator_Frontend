@@ -1,4 +1,6 @@
-export interface Simulation {
+import { Dailystats } from "./dailystats.model";
+
+export interface SimulationWithStats {
     id: any;
     name: string;
     population: number;
@@ -8,4 +10,5 @@ export interface Simulation {
     infectedTime: number;
     mortalityTime: number;
     simulationTime: number;
+    dailyStatsList: Dailystats[];
 }
