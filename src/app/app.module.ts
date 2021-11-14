@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AddSimulationComponent } from './component/add-simulation/add-simulation.component';
 import { SimulationDetailsComponent } from './component/simulation-details/simulation-details.component';
 import { SimulationListComponent } from './component/simulation-list/simulation-list.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddSimulationComponent,
     SimulationDetailsComponent,
-    SimulationListComponent
+    SimulationListComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,78 +1,59 @@
 <div class="list row">
-  
-    <div class="container">
-      <h4>Simulations List</h4>
-      
-      <table class='table table-bordered table-condensed table-striped table-hover'>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>P</th>
-            <th>I</th>
-            <th>R</th>
-            <th>M</th>
-            <th>Ti</th>
-            <th>Tm</th>
-            <th>Ts</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let simulation of simulations">
-            <td>{{simulation.name}}</td>
-            <td>{{simulation.population}}</td>
-            <td>{{simulation.infected}}</td>
-            <td>{{simulation.rvalue}}</td>
-            <td>{{simulation.mortality}}</td>
-            <td>{{simulation.infectedTime}}</td>
-            <td>{{simulation.mortalityTime}}</td>
-            <td>{{simulation.simulationTime}}</td>
-            <td><a (click)="openDialog('Delete', simulation)">Delete</a></td>
-          </tr>
-        </tbody>
-      
-      </table>
+  <div class="container">
+    <h4>Simulations List</h4>
 
-      <!-- <div class="table">
-        <a *ngFor="let simulation of simulations" 
-        class="tableRow" href="http://www.google.com">
-          <div class="tableCell">{{simulation.name}}</div>
-          <div class="tableCell">{{simulation.population}}</div>
-          <div class="tableCell">{{simulation.infected}}</div>
-        </a>
-      </div> -->
+    <table
+      class="table table-bordered table-condensed table-striped table-hover"
+    >
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>P</th>
+          <th>I</th>
+          <th>R</th>
+          <th>M</th>
+          <th>Ti</th>
+          <th>Tm</th>
+          <th>Ts</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let simulation of simulations">
+          <td>{{ simulation.name }}</td>
+          <td>{{ simulation.population }}</td>
+          <td>{{ simulation.infected }}</td>
+          <td>{{ simulation.rvalue }}</td>
+          <td>{{ simulation.mortality }}</td>
+          <td>{{ simulation.infectedTime }}</td>
+          <td>{{ simulation.mortalityTime }}</td>
+          <td>{{ simulation.simulationTime }}</td>
+          <td>
+            <!-- <a
+              class="badge badge-warning"
+              routerLink="/simulation/{{ currentSimulation.id }}"
+            >
+              Details
+            </a> -->
+            <button
+              class="badge badge-danger mr-2"
+              (click)="goToDetails(simulation)"
+            >
+              Details
+            </button>
 
-      <!-- <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let simulation of simulations; let i = index"
-          [class.active]="i == currentIndex"
-          (click)="setActiveSimulation(simulation, i)"
-        >
-          {{ simulation.name }}
-        </li>
-      </ul> -->
-    
-    </div>
-    <!-- <div class="col-md-6">
-      <div *ngIf="currentSimulation.id">
-        <h4>Simulation</h4>
-        <div>
-          <label><strong>Id:</strong></label> {{ currentSimulation.id }}
-        </div>
-        <div>
-          <label><strong>Name:</strong></label>
-          {{ currentSimulation.name }}
-        </div>
-  
-        <a class="badge badge-warning" routerLink="/simulation/{{ currentSimulation.id }}">
-          Edit
-        </a>
-      </div>
-  
-      <div *ngIf="!currentSimulation">
-        <br />
-        <p>Please click on a Simulation...</p>
-      </div>
-    </div> -->
+
+            <button
+              class="badge badge-danger mr-2"
+              (click)="deleteTutorial(simulation)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
+
+</div>

@@ -15,4 +15,8 @@ export class ControllerService {
   getAll(): Observable<Simulation[]> {
     return this.http.get<Simulation[]>(baseUrl);
   }
+
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
 }

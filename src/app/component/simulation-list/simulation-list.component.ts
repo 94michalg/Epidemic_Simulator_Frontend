@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Simulation } from 'src/app/models/simulation.model';
 import { ControllerService } from 'src/app/services/controller.service';
-
 
 @Component({
   selector: 'app-simulation-list',
   templateUrl: './simulation-list.component.html',
   styleUrls: ['./simulation-list.component.scss']
 })
+
 export class SimulationListComponent implements OnInit {
 
   simulations?: Simulation[];
@@ -15,7 +16,8 @@ export class SimulationListComponent implements OnInit {
   currentIndex = -1;
   title = '';
 
-  constructor(private controllerService: ControllerService) { }
+  constructor(private controllerService: ControllerService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveSimulations();
@@ -34,9 +36,32 @@ export class SimulationListComponent implements OnInit {
       )
   }
 
-  setActiveSimulation(simulation: Simulation, index: number): void {
-    this.currentSimulation = simulation;
-    this.currentIndex = index;
+  goToDetails(simulation: Simulation) {
+    this.router.navigate(['simulation/' + simulation.id]);
   }
+
+  deleteTutorial(simulation: Simulation) {
+    this.controllerService.delete(simulation.id)
+      .subscribe(
+        response=> {
+          console.log(response);
+          this.refreshList();
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
+
+  refreshList(): void {
+    this.retrieveSimulations();
+    // this.currentTutorial = {};
+    // this.currentIndex = -1;
+  }
+
+  // setActiveSimulation(simulation: Simulation, index: number): void {
+  //   this.currentSimulation = simulation;
+  //   this.currentIndex = index;
+  // }
 
 }
