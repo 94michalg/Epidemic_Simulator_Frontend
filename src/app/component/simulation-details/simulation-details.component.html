@@ -1,56 +1,63 @@
 <div>
-    <table
-      class="table table-bordered table-condensed table-striped table-hover"
-    >
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>P</th>
-          <th>I</th>
-          <th>R</th>
-          <th>M</th>
-          <th>Ti</th>
-          <th>Tm</th>
-          <th>Ts</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ currentSimulation.name }}</td>
-          <td>{{ currentSimulation.population }}</td>
-          <td>{{ currentSimulation.infected }}</td>
-          <td>{{ currentSimulation.rvalue }}</td>
-          <td>{{ currentSimulation.mortality }}</td>
-          <td>{{ currentSimulation.infectedTime }}</td>
-          <td>{{ currentSimulation.mortalityTime }}</td>
-          <td>{{ currentSimulation.simulationTime }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>P</th>
+        <th>I</th>
+        <th>R</th>
+        <th>M</th>
+        <th>Ti</th>
+        <th>Tm</th>
+        <th>Ts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ currentSimulation.name }}</td>
+        <td>{{ currentSimulation.population }}</td>
+        <td>{{ currentSimulation.infected }}</td>
+        <td>{{ currentSimulation.rvalue }}</td>
+        <td>{{ currentSimulation.mortality }}</td>
+        <td>{{ currentSimulation.infectedTime }}</td>
+        <td>{{ currentSimulation.mortalityTime }}</td>
+        <td>{{ currentSimulation.simulationTime }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <br><br>
-
-    <table
-      class="table table-bordered table-condensed table-striped table-hover"
-    >
-      <thead>
-        <tr>
-          <th>Day</th>
-          <th>Pi</th>
-          <th>Pv</th>
-          <th>Pm</th>
-          <th>Pr</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let dailyStats of currentSimulation.dailyStatsList">
-          <td>{{ dailyStats.day }}</td>
-          <td>{{ dailyStats.pi }}</td>
-          <td>{{ dailyStats.pv }}</td>
-          <td>{{ dailyStats.pm }}</td>
-          <td>{{ dailyStats.pr }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <br />
+  <div class="chart-wrapper">
+    <canvas baseChart 
+        [datasets]="chartData" 
+        [labels]="chartLabel" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
 </div>
-  
+  <br />
+
+  <table class="table table-bordered table-condensed table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Pi</th>
+        <th>Pv</th>
+        <th>Pm</th>
+        <th>Pr</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dailyStats of currentSimulation.dailyStatsList">
+        <td>{{ dailyStats.day }}</td>
+        <td>{{ dailyStats.pi }}</td>
+        <td>{{ dailyStats.pv }}</td>
+        <td>{{ dailyStats.pm }}</td>
+        <td>{{ dailyStats.pr }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
