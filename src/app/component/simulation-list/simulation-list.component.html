@@ -29,22 +29,15 @@
           <td>{{ simulation.mortalityTime }}</td>
           <td>{{ simulation.simulationTime }}</td>
           <td>
-            <!-- <a
-              class="badge badge-warning"
-              routerLink="/simulation/{{ currentSimulation.id }}"
-            >
-              Details
-            </a> -->
             <button
-              class="badge badge-danger mr-2"
+              class="btn btn-info"
               (click)="goToDetails(simulation)"
             >
               Details
             </button>
-
-
+            &nbsp;&nbsp;
             <button
-              class="badge badge-danger mr-2"
+              class="btn btn-danger"
               (click)="deleteTutorial(simulation)"
             >
               Delete

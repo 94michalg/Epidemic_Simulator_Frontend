@@ -12,9 +12,6 @@ import { ControllerService } from 'src/app/services/controller.service';
 export class SimulationListComponent implements OnInit {
 
   simulations?: Simulation[];
-  currentSimulation: Simulation = {};
-  currentIndex = -1;
-  title = '';
 
   constructor(private controllerService: ControllerService,
               private router: Router) { }
@@ -55,13 +52,6 @@ export class SimulationListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveSimulations();
-    // this.currentTutorial = {};
-    // this.currentIndex = -1;
   }
-
-  // setActiveSimulation(simulation: Simulation, index: number): void {
-  //   this.currentSimulation = simulation;
-  //   this.currentIndex = index;
-  // }
 
 }

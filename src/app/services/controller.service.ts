@@ -19,4 +19,8 @@ export class ControllerService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
+
+  create(data: any): Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
 }
