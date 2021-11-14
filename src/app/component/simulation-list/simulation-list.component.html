@@ -7,15 +7,27 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Population</th>
-            <th>Infected</th>
+            <th>P</th>
+            <th>I</th>
+            <th>R</th>
+            <th>M</th>
+            <th>Ti</th>
+            <th>Tm</th>
+            <th>Ts</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="clickable" *ngFor="let simulation of simulations" routerLink="/simulation/{{ currentSimulation.id }}" >
+          <tr *ngFor="let simulation of simulations">
             <td>{{simulation.name}}</td>
             <td>{{simulation.population}}</td>
             <td>{{simulation.infected}}</td>
+            <td>{{simulation.rvalue}}</td>
+            <td>{{simulation.mortality}}</td>
+            <td>{{simulation.infectedTime}}</td>
+            <td>{{simulation.mortalityTime}}</td>
+            <td>{{simulation.simulationTime}}</td>
+            <td><a (click)="openDialog('Delete', simulation)">Delete</a></td>
           </tr>
         </tbody>
       

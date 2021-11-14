@@ -3,8 +3,8 @@ export class Simulation {
     name?: string;
     population?: number;
     infected?: number;
-    RValue?: number;
-    mortalilty?: number;
+    rvalue?: number;
+    mortality?: number;
     infectedTime?: number;
     mortalityTime?: number;
     simulationTime?: number;
