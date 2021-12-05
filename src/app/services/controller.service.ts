@@ -29,4 +29,8 @@ export class ControllerService {
     let url = `${baseUrl}/${id}`;
     return this.http.get<SimulationWithStats>(url);
   }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
 }

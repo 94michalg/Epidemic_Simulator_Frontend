@@ -1,5 +1,6 @@
 <div>
-  <table class="table table-bordered table-condensed table-striped table-hover">
+  <table class="table table-bordered table-condensed table-striped table-hover"
+    style="text-align: center;">
     <thead>
       <tr>
         <th>Name</th>
@@ -10,6 +11,7 @@
         <th>Ti</th>
         <th>Tm</th>
         <th>Ts</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -22,32 +24,68 @@
         <td>{{ currentSimulation.infectedTime }}</td>
         <td>{{ currentSimulation.mortalityTime }}</td>
         <td>{{ currentSimulation.simulationTime }}</td>
+        <td>
+          <button class="btn btn-secondary" (click)="edit(currentSimulation)">
+            Edit
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 
   <br />
   <div class="chart-wrapper">
-    <canvas baseChart 
-        [datasets]="chartData" 
-        [labels]="chartLabel" 
-        [options]="lineChartOptions"
-        [colors]="lineChartColors" 
-        [legend]="lineChartLegend" 
-        [chartType]="lineChartType" 
-        [plugins]="lineChartPlugins">
+    <canvas
+      baseChart
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      [plugins]="lineChartPlugins"
+    >
     </canvas>
-</div>
+  </div>
+  <br /><br>
+  <table class="chart-table">
+    <tr style="text-align: center;">
+      <td><h3>First day:</h3></td>
+      <td><h3>Last day:</h3></td>
+    </tr>
+    <tr>
+      <td>
+        <canvas
+          baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          [colors]="doughnutChartColors"
+        >
+        </canvas>
+      </td>
+      <td>
+        <canvas
+          baseChart
+          [data]="doughnutChartDataAfter"
+          [labels]="doughnutChartLabelsAfter"
+          [chartType]="doughnutChartTypeAfter"
+          [colors]="doughnutChartColors"
+        >
+        </canvas>
+      </td>
+    </tr>
+  </table>
   <br />
-
-  <table class="table table-bordered table-condensed table-striped table-hover">
+  <br><br><br>
+  <table class="table table-bordered table-condensed table-striped table-hover" style="max-width: 700px; margin: auto; text-align: center;">
     <thead>
       <tr>
         <th>Day</th>
-        <th>Pi</th>
-        <th>Pv</th>
-        <th>Pm</th>
-        <th>Pr</th>
+        <th>Infected</th>
+        <th>Vulnerable</th>
+        <th>Dead</th>
+        <th>Convalescents</th>
       </tr>
     </thead>
     <tbody>

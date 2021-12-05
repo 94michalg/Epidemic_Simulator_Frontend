@@ -10,6 +10,7 @@ import { AddSimulationComponent } from './component/add-simulation/add-simulatio
 import { SimulationDetailsComponent } from './component/simulation-details/simulation-details.component';
 import { SimulationListComponent } from './component/simulation-list/simulation-list.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { EditSimulationComponent } from './component/edit-simulation/edit-simulation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     AddSimulationComponent,
     SimulationDetailsComponent,
     SimulationListComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    EditSimulationComponent
   ],
   imports: [
     BrowserModule,

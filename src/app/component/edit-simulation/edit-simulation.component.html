@@ -1,0 +1,110 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="simulation.name"
+            name="name"
+            value="Ruch"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="population">Population</label>
+          <input
+            type="number"
+            class="form-control"
+            id="population"
+            required
+            [(ngModel)]="simulation.population"
+            name="population"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="infected">Infected</label>
+          <input
+            type="number"
+            class="form-control"
+            id="infected"
+            required
+            [(ngModel)]="simulation.infected"
+            name="infected"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="mortality">Mortality</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mortality"
+            required
+            [(ngModel)]="simulation.mortality"
+            name="mortality"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="rvalue">R-value</label>
+          <input
+            type="number"
+            class="form-control"
+            id="rvalue"
+            required
+            [(ngModel)]="simulation.rvalue"
+            name="rvalue"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="infectedTime">Time of infection</label>
+          <input
+            type="number"
+            class="form-control"
+            id="infectedTime"
+            required
+            [(ngModel)]="simulation.infectedTime"
+            name="infectedTime"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="mortalityTime">Time of mortality</label>
+          <input
+            type="number"
+            class="form-control"
+            id="mortalityTime"
+            required
+            [(ngModel)]="simulation.mortalityTime"
+            name="mortalityTime"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="simulationTime">Time of simulation</label>
+          <input
+            type="number"
+            class="form-control"
+            id="simulationTime"
+            required
+            [(ngModel)]="simulation.simulationTime"
+            name="simulationTime"
+          />
+        </div>
+  
+        <button (click)="editSimulation()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Simulation was edited successfully!</h4>
+        <button class="btn btn-success" (click)="backToList()">Back</button>
+      </div>
+    </div>
+  </div>
+  
